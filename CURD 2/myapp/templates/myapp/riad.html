@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+
+
+    <form action="{% url 'index' %}" method="post">
+
+        {% csrf_token %}
+
+  
+        
+        <input type="text" name="name"  placeholder="Enter Name" > <br>
+        <input type="text" name="subject"  placeholder="Enter subject" ><br>
+        <input type="text" name="age"  placeholder="Enter AGE" ><br>
+
+        <input type="submit" value="create">
+
+        
+
+    </form>
+
+  
+<br>
+<h1>Read</h1>
+
+
+
+    <table border="1">
+        <tr>
+            <th>name</th>
+            <th>age</th>
+            <th>subject</th>
+            <th>DELETES</th>
+           
+        </tr>
+       
+        
+            {% for i in uid %}
+            <tr>
+                <td>{{i.name}}</td>
+                <td>{{i.age}}</td>
+                <td>{{i.subject}}</td>
+                <td><a href="deletes/{{i.id}}">delete</a></td>
+               
+            </tr>
+            
+            {% endfor %}
+        
+    </table>
+
+
+
+    <table border="1">
+        <tr>
+            <th>name</th>
+            <th>age</th>
+            <th>subject</th>
+           
+           
+        </tr>
+
+
+        <h1>Update Data</h1>
+
+       
+        {% for i in uid %}
+        <tr>
+            <form action="updetes/{{i.id}}" method="post">
+                {% csrf_token %}
+
+            <td><input type="text" name="name" value="{{i.name}}"></td>
+            <td><input type="text" name="age" value="{{i.age}}"></td>
+            <td><input type="text" name="subject" value="{{i.subject}}"></td>
+
+
+            <td><input type="submit"  value="UPDATES"></td>
+
+        </form>
+           
+        </tr>
+        
+        {% endfor %}
+
+
+    </table>
+
+
+    <h1>      Add Data</h1>
+
+    <a href="{% url 'index' %}">Add DAta</a>
+    
+    
+
+
+</body>
+
+</html>

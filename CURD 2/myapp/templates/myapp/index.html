@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="{% url 'index' %}" method="post">
+
+        {% csrf_token %}
+
+        <label>name</label>
+        
+        <input type="text" name="name"  placeholder="Enter Name" >
+        <input type="text" name="subject"  placeholder="Enter subject" >
+        <input type="text" name="age"  placeholder="Enter AGE" >
+
+        <input type="submit" value="crate">
+
+        
+
+    </form>
+
+    <h3><a href="{% url 'riad' %}">READ DATA</a></h3>
+
+
+
+
+
+
+</body>
+</html>
